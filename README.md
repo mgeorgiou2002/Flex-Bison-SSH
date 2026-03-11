@@ -68,7 +68,7 @@ npm run compile
 
 7. Press F5 in VS Code to launch the extension
 
-## OR
+Or
 
 ## VS Code Marketplace
 
