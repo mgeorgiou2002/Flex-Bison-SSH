@@ -24,7 +24,11 @@ and parsers more efficiently.
 
 - ## Screenshots
 
-- ### Autocomplete
+### Syntax Highlighting
+
+![Syntax-Highlight](images/syntaxhighlighting.png)
+
+### Autocomplete
 
 ![Autocomplete](images/autocomplete.gif)
 
@@ -39,6 +43,14 @@ and parsers more efficiently.
 ### Regex Tester
 
 ![Regex](images/regextester.png)
+
+### Bison Auto-build
+
+![Bison-auto](images/bisongif.gif)
+
+### Flex Auto-build
+
+![Flex-auto](images/flexgif.gif)
 
 ## Installation
 
