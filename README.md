@@ -68,6 +68,11 @@ npm run compile
 
 7. Press F5 in VS Code to launch the extension
 
+## OR
+
+## VS Code Marketplace
+
+This extension is available on the Visual Studio Code Marketplace.
 ## Usage
 
 ### Build Flex/Bison
