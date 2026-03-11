@@ -1,71 +1,103 @@
-# flex-bison-yash README
+# Flex/Bison VS Code Extension
 
-This is the README for your extension "flex-bison-yash". After writing up a brief description, we recommend including the following sections.
+A Visual Studio Code extension that provides development support for
+Flex and Bison files (.l and .y).
+
+The extension adds syntax highlighting, linting, code navigation,
+autocomplete, and visualization tools to help users develop lexers
+and parsers more efficiently.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Syntax highlighting for Flex (.l) and Bison (.y)
+- Autocomplete for directives, tokens and grammar rules
+- Hover documentation for common Flex/Bison functions and directives
+- Go to Definition for tokens and grammar rules
+- Find References across Flex and Bison files
+- Document outline for grammar sections and rules
+- Real-time linting with compiler diagnostics
+- Semantic analysis (undefined symbols, duplicate declarations, unused tokens)
+- Quick fixes for common issues
+- Flex/Bison build command
+- Regex tester for Flex regular expressions
+- Grammar graph visualization for Bison grammars
 
-For example if there is an image subfolder under your extension project workspace:
+- ## Screenshots
 
-\!\[feature X\]\(images/feature-x.png\)
+- ### Autocomplete
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![Autocomplete](images/autocomplete.png)
 
-## Requirements
+### Linting and Quick Fix
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+![Lint](images/lint.png)
 
-## Extension Settings
+### Grammar Graph
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+![Graph](images/graph.png)
 
-For example:
+### Regex Tester
 
-This extension contributes the following settings:
+![Regex](images/regex.png)
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Installation
 
-## Known Issues
+1. Install Visual Studio Code
+2. Install Flex and Bison on your system
+3. Clone this repository
+4. Run:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+npm install
+npm run compile
 
-## Release Notes
+7. Press F5 in VS Code to launch the extension
 
-Users appreciate release notes as you update your extension.
+## Usage
 
-### 1.0.0
+### Build Flex/Bison
 
-Initial release of ...
+Click the **Build Flex/Bison** button in the toolbar or run:
 
-### 1.0.1
+Flex: Run Flex/Bison
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+from the Command Palette.
 
 ---
 
-## Following extension guidelines
+### Regex Tester
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+Open the Regex Tester from the command palette:
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+Flex: Regex Tester
 
-## Working with Markdown
+Insert a regular expression and test input to see if it is accepted.
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+---
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+### Grammar Graph
 
-## For more information
+Open a Bison (.y) file and run:
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Flex: Show Grammar Graph
 
-**Enjoy!**
+to visualize grammar rule dependencies.
+
+## Example
+
+Example Bison rule:
+
+expr:
+    expr '+' expr
+  | NUMBER
+  ;
+
+  ## Requirements
+
+- Flex
+- Bison
+- GCC
+- Visual Studio Code
+
+- ## Author
+
+Developed as part of a Bachelor's thesis project.
