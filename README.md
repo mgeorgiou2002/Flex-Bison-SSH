@@ -114,6 +114,10 @@ expr:
 - GCC
 - Visual Studio Code
 
-- ## Author
+## Author
 
-Developed as part of a Bachelor's thesis project.
+Marios Georgiou  
+Student ID: ics22140  
+
+Department of Applied Informatics  
+University of Macedonia, Thessaloniki, Greece  
