@@ -1,0 +1,114 @@
+{
+    "name": "Bison",
+    "scopeName": "source.bison",
+    "patterns": [
+        { "include": "#declarations" },
+        { "include": "#rules" },
+        { "include": "#epilogue" }
+    ],
+    "repository": {
+        "declarations": {
+            "name": "meta.section.declarations.bison",
+            "begin": "\\A",
+            "end": "^(?=%%)",
+            "patterns": [
+                { "include": "#prologue" },
+                { "include": "#comments" },
+                { "include": "#comment" },
+                { "include": "#result-type" },
+                { "include": "#keywords" },
+                { "include": "#keywords-block" },
+                { "include": "#define" }
+            ]
+        },
+        "rules": {
+            "name": "meta.section.rules.bison",
+            "begin": "^%%",
+            "end": "^(?=%%)",
+            "beginCaptures": {
+                "0": { "name": "keyword.control.section.bison" }
+            },
+            "patterns": [
+                { "include": "#results" },
+                { "include": "#comments" },
+                { "include": "#comment" },
+                { "include": "#character" },
+                { "include": "#nonterminalExtension" },
+                { "include": "#variables" },
+                {
+                    "name": "keyword.operator.bison",
+                    "match": "[\\|:;]"
+                },
+                {
+                    "name": "keyword.other.bison",
+                    "match": "%(empty|prec)"
+                },
+                {
+                    "name": "meta.action.bison",
+                    "begin": "\\{",
+                    "end": "\\}",
+                    "beginCaptures": {
+                        "0": { "name": "punctuation.section.action.begin.bison" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "punctuation.section.action.end.bison" }
+                    },
+                    "patterns": [
+                        { "include": "#embedded" }
+                    ]
+                }
+            ]
+        },
+        "epilogue": {
+            "name": "meta.section.epilogue.bison",
+            "begin": "^%%",
+            "end": "\\z",
+            "beginCaptures": {
+                "0": { "name": "keyword.control.section.bison" }
+            },
+            "patterns": [
+                { "include": "#embedded" }
+            ]
+        },
+        "prologue": {
+            "name": "meta.prologue.bison",
+            "begin": "%\\{",
+            "end": "%\\}",
+            "beginCaptures": { "0": { "name": "punctuation.section.embedded.begin.bison" } },
+            "endCaptures": { "0": { "name": "punctuation.section.embedded.end.bison" } },
+            "patterns": [ { "include": "#embedded" } ]
+        },
+        "keywords": {
+            "name": "keyword.other.bison",
+            "match": "^\\s*%(token|left|right|nonassoc|type|start|expect|debug|pure-parser|locations|error-verbose|parse-param|lex-param|name-prefix|file-prefix|header|skeleton|language|require)\\b"
+        },
+        "results": {
+            "name": "entity.name.type.nonterminal.bison",
+            "match": "^\\s*[a-zA-Z_][a-zA-Z0-9_]*\\s*(?=:)"
+        },
+        "variables": {
+            "name": "variable.other.terminal.bison",
+            "match": "\\b[A-Z_][A-Z0-9_]*\\b"
+        },
+        "embedded": {
+            "patterns": [
+                { "include": "source.c" },
+                { "include": "source.cpp" }
+            ]
+        },
+        "comments": {
+            "name": "comment.block.bison",
+            "begin": "/\\*",
+            "end": "\\*/"
+        },
+        "comment": {
+            "name": "comment.line.double-slash.bison",
+            "begin": "//",
+            "end": "$"
+        },
+        "character": {
+            "name": "string.quoted.single.bison",
+            "match": "'[^']+'"
+        }
+    }
+}

@@ -1,0 +1,192 @@
+{
+  "name": "Flex",
+  "scopeName": "source.flex",
+  "patterns": [
+    {
+      "include": "#definition"
+    },
+    {
+      "include": "#rules"
+    },
+    {
+      "include": "#usercode"
+    }
+  ],
+  "repository": {
+    "definition": {
+      "name": "meta.section.definitions.flex",
+      "begin": "\\A",
+      "end": "^(?=%%\\s*$)",
+      "patterns": [
+        { "include": "#block" },
+        { "include": "#directives" },
+        { "include": "#states" },
+        { "include": "#defines" },
+        { "include": "#comments" },
+        { "include": "#linecomment" },
+        { "include": "#hashcomment" },
+        { "include": "#strings" },
+        { "include": "#brackets" }
+      ]
+    },
+    "rules": {
+  "name": "meta.section.rules.flex",
+  "begin": "^%%\\s*$",
+  "end": "^(?=%%\\s*$)",
+  "beginCaptures": {
+    "0": { "name": "keyword.control.section.flex" }
+  },
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#linecomment" },
+    { "include": "#hashcomment" },
+    { "include": "#strings" },
+    { "include": "#brackets" },
+    { "include": "#user-define" },
+    {
+      "name": "string.regexp.flex",
+      "match": "^[^\\s\\t/{}%]+"
+    },
+    { "include": "#symbols" },
+    {
+      "name": "meta.action.flex",
+      "begin": "\\{",
+      "end": "\\}",
+      "beginCaptures": {
+        "0": { "name": "punctuation.section.block.begin.flex" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.section.block.end.flex" }
+      },
+      "patterns": [
+        { "include": "#embedded" }
+      ]
+    }
+  ]
+},
+    "usercode": {
+      "name": "meta.section.usercode.flex",
+      "begin": "^%%\\s*$",
+      "end": "\\z",
+      "beginCaptures": {
+        "0": { "name": "keyword.control.section.flex" }
+      },
+      "patterns": [
+        { "include": "#embedded" }
+      ]
+    },
+    "block": {
+      "patterns": [
+        {
+          "name": "meta.embedded.block.flex",
+          "begin": "%\\{",
+          "end": "%\\}",
+          "beginCaptures": {
+            "0": { "name": "punctuation.section.embedded.begin.flex" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.section.embedded.end.flex" }
+          },
+          "patterns": [
+            { "include": "#embedded" }
+          ]
+        }
+      ]
+    },
+    "directives": {
+      "begin": "^%(array|pointer|option)\\b",
+      "end": "$",
+      "beginCaptures": {
+        "0": { "name": "keyword.directive.flex" }
+      },
+      "patterns": [
+        { "include": "#strings" },
+        {
+          "name": "variable.parameter.flex",
+          "match": "[a-zA-Z0-9_-]+"
+        }
+      ]
+    },
+    "defines": {
+      "begin": "^[a-zA-Z_][a-zA-Z0-9_]*",
+      "end": "$",
+      "beginCaptures": {
+        "0": { "name": "entity.name.macro.flex" }
+      },
+      "patterns": [
+        { "include": "#comments" },
+        { "include": "#linecomment" },
+        { "include": "#user-define" },
+        { "include": "#strings" },
+        { "include": "#brackets" },
+        {
+          "name": "string.regexp.flex",
+          "match": "."
+        }
+      ]
+    },
+    "user-define": {
+      "match": "(?<=[^\\\\]|^)\\{([a-zA-Z_][a-zA-Z0-9_]*)\\}",
+      "captures": {
+        "0": { "name": "meta.macro.reference.flex" },
+        "1": { "name": "entity.name.macro.flex" }
+      }
+    },
+   "brackets": {
+  "name": "string.regexp.character-class.flex",
+  "match": "\\[(?:[^\\[\\]\\\\]|\\\\.)*\\]"
+},
+"strings": {
+  "name": "string.quoted.double.flex",
+  "match": "\"(?:[^\"\\\\]|\\\\.)*\""
+},
+    "symbols": {
+      "name": "keyword.operator.flex",
+      "match": "[\\|;]"
+    },
+    "embedded": {
+      "patterns": [
+        { "include": "#comments" },
+        { "include": "#linecomment" },
+        { "include": "#strings" },
+        { "include": "#c-keywords" },
+        { "include": "#c-types" },
+        { "include": "#c-functions" },
+        { "include": "#c-constants" },
+        { "include": "source.c" }
+      ]
+    },
+    "comments": {
+      "name": "comment.block.flex",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    "linecomment": {
+      "name": "comment.line.double-slash.flex",
+      "begin": "//",
+      "end": "$"
+    },
+    "hashcomment": {
+      "name": "comment.line.number-sign.flex",
+      "match": "^#.*$"
+    },
+    "c-keywords": {
+      "name": "keyword.control.c",
+      "match": "\\b(return|if|else|for|while|do|switch|case|break|continue|goto)\\b"
+    },
+    "c-types": {
+      "name": "storage.type.c",
+      "match": "\\b(void|char|short|int|long|float|double|signed|unsigned|const|volatile|static|extern|struct|union|enum|typedef|sizeof)\\b"
+    },
+    "c-functions": {
+      "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.c" }
+      }
+    },
+    "c-constants": {
+      "name": "constant.other.caps.c",
+      "match": "\\b[A-Z_][A-Z0-9_]*\\b"
+    }
+  }
+}

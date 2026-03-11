@@ -1,0 +1,25 @@
+{
+	"Flex Template": {
+		"prefix": "flex-base",
+		"body": [
+			"%{",
+			"#include <stdio.h>",
+			"#include \"${1:y.tab.h}\"",
+			"%}",
+			"",
+			"%%",
+			"${2:[0-9]+}    { return ${3:TOKEN}; }",
+			"[ \\t\\n]   { /* skip whitespace */ }",
+			".          { printf(\"Unknown character: %s\\n\", yytext); }",
+			"%%",
+			"",
+			"int yywrap() { return 1; }",
+			"",
+			"int main() {",
+			"    yylex();",
+			"    return 0;",
+			"}"
+		],
+		"description": "Βασική δομή αρχείου Flex"
+	}
+}

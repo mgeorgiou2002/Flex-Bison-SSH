@@ -1,0 +1,25 @@
+{
+	"Bison Template": {
+		"prefix": "bison-base",
+		"body": [
+			"%{",
+			"#include <stdio.h>",
+			"int yylex();",
+			"void yyerror(const char *s);",
+			"%}",
+			"",
+			"%token ${1:TOKEN}",
+			"",
+			"%%",
+			"${2:program}:",
+			"    ${1:TOKEN} { printf(\"Matched token\\n\"); }",
+			"    ;",
+			"%%",
+			"",
+			"void yyerror(const char *s) {",
+			"    fprintf(stderr, \"Error: %s\\n\", s);",
+			"}"
+		],
+		"description": "Βασική δομή αρχείου Bison"
+	}
+}

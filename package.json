@@ -1,0 +1,107 @@
+{
+  "name": "flex-bison-yash",
+  "displayName": "flex-bison-yash",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:flex",
+    "onLanguage:bison"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "flex.run",
+        "title": "Build Flex/Bison",
+        "icon": "$(play)"
+      },
+      {
+        "command": "flex.regexTester",
+        "title": "Open Flex Regex Tester",
+        "icon": "$(regex)"
+      },
+      {
+        "command": "flex.showGrammarGraph",
+        "title": "Open Grammar Graph",
+        "icon": "$(graph)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "flex.run",
+          "when": "resourceLangId == flex || resourceLangId == bison",
+          "group": "navigation@1"
+        },
+        {
+          "command": "flex.regexTester",
+          "when": "resourceLangId == flex || resourceLangId == bison",
+          "group": "navigation@2"
+        },
+        {
+          "command": "flex.showGrammarGraph",
+          "when": "resourceLangId == bison",
+          "group": "navigation@3"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "flex",
+        "aliases": ["Flex"],
+        "extensions": [".l"]
+      },
+      {
+        "id": "bison",
+        "aliases": ["Bison"],
+        "extensions": [".y"]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "flex",
+        "scopeName": "source.flex",
+        "path": "./syntaxes/flex.tmLanguage.json"
+      },
+      {
+        "language": "bison",
+        "scopeName": "source.bison",
+        "path": "./syntaxes/bison.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "flex",
+        "path": "./snippets/flex.code-snippets"
+      },
+      {
+        "language": "bison",
+        "path": "./snippets/bison.code-snippets"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.56.1",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
