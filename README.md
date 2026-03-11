@@ -64,9 +64,10 @@ and parsers more efficiently.
 4. Run:
 
 npm install
+
 npm run compile
 
-7. Press F5 in VS Code to launch the extension
+5. Press F5 in VS Code to launch the extension
 
 Or
 
