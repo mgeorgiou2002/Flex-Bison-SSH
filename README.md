@@ -28,6 +28,10 @@ and parsers more efficiently.
 
 ![Syntax-Highlight](images/syntaxhighlighting.png)
 
+### Hover Window
+
+![Hover-Window](images/hover.gif)
+
 ### Autocomplete
 
 ![Autocomplete](images/autocomplete.gif)
