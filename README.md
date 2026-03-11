@@ -26,11 +26,11 @@ and parsers more efficiently.
 
 - ### Autocomplete
 
-![Autocomplete](images/autocomplete.png)
+![Autocomplete](images/autocomplete.gif)
 
 ### Linting and Quick Fix
 
-![Lint](images/lint.png)
+![Lint](images/lint.gif)
 
 ### Grammar Graph
 
@@ -38,7 +38,7 @@ and parsers more efficiently.
 
 ### Regex Tester
 
-![Regex](images/regex.png)
+![Regex](images/regextester.png)
 
 ## Installation
 
