@@ -77,11 +77,7 @@ This extension is available on the Visual Studio Code Marketplace.
 
 ### Build Flex/Bison
 
-Click the **Build Flex/Bison** button in the toolbar or run:
-
-Flex: Run Flex/Bison
-
-from the Command Palette.
+Click the **Build Flex/Bison** button in the toolbar 
 
 ---
 
