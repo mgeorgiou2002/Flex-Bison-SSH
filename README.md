@@ -70,7 +70,7 @@ npm run compile
 
 Or
 
-## VS Code Marketplace
+# VS Code Marketplace
 
 This extension is available on the Visual Studio Code Marketplace.
 ## Usage
