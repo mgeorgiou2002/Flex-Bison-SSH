@@ -116,7 +116,7 @@ expr:
 - GCC
 - Visual Studio Code
 
-## Guide
+## Quick-Guide
 
 After installing the extension, open a workspace containing Flex (`.l`) and/or Bison (`.y`) files.
 
