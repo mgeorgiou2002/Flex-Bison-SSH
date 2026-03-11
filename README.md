@@ -34,7 +34,7 @@ and parsers more efficiently.
 
 ### Grammar Graph
 
-![Graph](images/graph.png)
+![Graph](images/grammargraph.png)
 
 ### Regex Tester
 
