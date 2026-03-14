@@ -52,17 +52,20 @@
       ]
     },
     "languages": [
-      {
-        "id": "flex",
-        "aliases": ["Flex"],
-        "extensions": [".l"]
-      },
-      {
-        "id": "bison",
-        "aliases": ["Bison"],
-        "extensions": [".y"]
-      }
-    ],
+       {
+    "id": "flex",
+    "aliases": ["Flex"],
+    "extensions": [".l"],
+    "configuration": "./language-configuration/flex-language-configuration.json"
+  },
+  {
+    "id": "bison",
+    "aliases": ["Bison"],
+    "extensions": [".y"],
+    "configuration": "./language-configuration/bison-language-configuration.json"
+  }
+    ]
+    ,
     "grammars": [
       {
         "language": "flex",
