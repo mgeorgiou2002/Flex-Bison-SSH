@@ -20,12 +20,12 @@ export function activate(context: vscode.ExtensionContext) {
     registerGrammarGraphCommand(context);
     registerHoverProvider(context);
 
-    const completionProvider = vscode.languages.registerCompletionItemProvider(
-        ['flex', 'bison'],
-        new FlexBisonCompletionProvider(),
-        '%',
-        '$'
-    );
+   const completionProvider = vscode.languages.registerCompletionItemProvider(
+    ['flex', 'bison'],
+    new FlexBisonCompletionProvider(),
+    '%',
+    '$'  
+);
 
     const definitionProvider = vscode.languages.registerDefinitionProvider(
         ['bison'],
